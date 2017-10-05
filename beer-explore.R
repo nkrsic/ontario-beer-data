@@ -72,25 +72,3 @@ write.csv(x=df,
           quote=TRUE,
           row.names=FALSE,
           fileEncoding = "latin1")
-
-
-
-# ----------------------------
-
-# is_empty <- df$Manufacturer.s.Brand..Marque.du.fabricant. == ""
-# df2 <- df[!is_empty, ]
-# 
-# tt <- table(df2$Manufacturer.Type..Type.de.fabricant.)
-# tt2 <- c(157, 813+3+1)
-# p <- (1.0 / sum(tt2) )*100* tt2
-# 
-# ttn <- c(sprintf("Manufacturer %3.1f%%",p[1]), 
-#          sprintf("Microbrewer %3.1f%%",p[2]) )
-# 
-# 
-# library(plotrix)
-# pie3D(tt2, 
-#       labels = ttn, 
-#       main = "Unique beer representation", 
-#       explode=0.12, radius=1.5, labelcex = 1.1,  start=0.7, labelrad=2.30)
-
