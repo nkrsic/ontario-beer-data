@@ -22,18 +22,22 @@ quote characters (provided by Microsoft -- see below).
 2) An R script, 'beer-explore.R', was used to clean data entry errors 
 still remaining in 'beer_w_quotes.csv, and to clearly mark empty strings as "#NA#". The cleaned datasets were written to separate files for UTF-8 and ISO 8859-1 encodings respectively. 
 
+**NOTE:** Some of the data will contain French names and accented letters, so 
+it is necessary to take some care to make sure all names are being imported
+properly. 
+
 # Cleaned data
 
 The R cleaning script will create the following cleaned CSV files:
 
-* 'beer_clean_iso8859_1.csv'
-    * Characters encoded in ISO 8859-1 or 'latin1' encoding.
-* 'beer_clean_utf8.csv'
-    * Characters encoded in UTF-8 encoding.  
-    
+| Filename| Format|Char. Encoding|
+| ------------- |:-------------:|:----------:|
+| beer_clean_utf8.csv | CSV | UTF-8 |
+| beer_clean_iso8859_1.csv | CSV | ISO 8859-1 |
+
 For both of the above files, the string "#NA#" is used to denote an empty
 string. These empty strings were present in the original dataset either because
-the manufacturer did not have a brand associated with it, or because of possibly
+the manufacturer did not have a brand associated with it, or because of possible
 data entry errors which left said fields blank. 
 
 # Usage notes
@@ -61,6 +65,20 @@ df <- read.table("./beer_clean_iso8859_1.csv",
                  colClasses=c("character","character","character")
                  ) 
 ```
+
+### Excel Users
+
+Excel users should be able to open either of the cleaned files. 
+
+* 'beer_clean_iso8859_1.csv' 
+    * Users should be able to open this file as usual, and Excel **should** 
+      handle the encoding by default. If French characters are are not 
+      displaying properly, open the file through the **Data** menu, and select
+      a Western Latin-1 encoding.
+* 'beer_clean_utf8.csv'
+    * Users should open Excel, and then import this file via the Data menu. Make
+      sure to select 'All Files' under the type, and for 'File origin' drop 
+      down menu, user should specify '65001: Unicode (UTF-8)'. 
 
 # Links
 
